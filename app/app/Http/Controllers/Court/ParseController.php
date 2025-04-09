@@ -17,7 +17,7 @@ class ParseController extends BaseController
         // $html = mb_convert_encoding($html, 'UTF-8', 'Windows-1251');
         // $html = preg_replace('/<meta.*charset=windows-1251.*>/i', '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">', $html);
         // dump($html);
-
+        //
         $host = 'http://selenium:4444/wd/hub'; // обращение к selenium в сети docker
         $options = new ChromeOptions();
         $options->addArguments([
