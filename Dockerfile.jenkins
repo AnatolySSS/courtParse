@@ -9,4 +9,4 @@ RUN apt-get update && \
     apt-get clean
 
 # Возвращаемся к пользователю Jenkins
-USER jenkins
+# USER jenkins
