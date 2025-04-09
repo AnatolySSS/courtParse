@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Court;
 
-use DOMDocument;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Chrome\ChromeOptions;
@@ -74,12 +73,6 @@ class ParseController extends BaseController
         $judgeFio = $crawler->filterXPath('//td[b[contains(text(), "Судья")]]/following-sibling::td')->first()->text();
 
         // Движение дела
-        // $courtPipeLine = $crawler->filterXPath('//tr[td[contains(text(), "Наименование события")]]/td[2]')->first()->text();
-
-        // Дата судебного заседания (из таблицы "Движение дела", ищем строку с "Судебное заседание")
-        $courtDate = $crawler->filterXPath('//tr[td[contains(text(), "Судебное заседание")]]/td[2]')->first()->text();
-
-        // Движение дела
         $table = $crawler->filterXPath('//tr[td[b[contains(text(), "Наименование события")]]]/ancestor::table');
         // Находим все строки событий, игнорируя заголовок
         $events = $table->filter('tr')->slice(2)->each(function (Crawler $node) {
@@ -126,12 +119,8 @@ class ParseController extends BaseController
             'Номер дела' => $caseNumber,
             'Дата регистрации' => $registerDate,
             'ФИО судьи' => $judgeFio,
-            'Дата судебного заседания' => $courtDate,
             'События' => $events,
             'Стороны' => $parties,
         ]);
-
-
-        // return $title;
     }
 }

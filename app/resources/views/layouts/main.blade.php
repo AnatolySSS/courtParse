@@ -13,7 +13,6 @@
 <body>
     <div class="container">
         <div class="row">
-            <!-- @yield('nav') -->
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">Navbar</a>
