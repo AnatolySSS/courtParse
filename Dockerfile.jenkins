@@ -1,12 +1,11 @@
-# Dockerfile.jenkins
-FROM jenkins/jenkins:2.492.2-lts-jdk17
+FROM jenkins/jenkins:lts-jdk17
 
 USER root
 
-# Установка Docker CLI
+# Установка docker, git, sudo
 RUN apt-get update && \
-    apt-get install -y docker.io && \
-    apt-get clean
+    apt-get install -y docker.io git sudo && \
+    usermod -aG docker jenkins
 
-# Возвращаемся к пользователю Jenkins
-# USER jenkins
+# Возвращаемся к jenkins пользователю
+USER jenkins
