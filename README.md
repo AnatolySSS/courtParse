@@ -17,5 +17,3 @@ srw-rw---- 1 root docker 0 Apr  9 14:30 /var/run/docker.sock
 
 # Предоставление прав на сокет Docker в контейнере Jenkins
 docker exec -u root laravel-jenkins chown root:docker /var/run/docker.sock
-
-#
