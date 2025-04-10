@@ -78,11 +78,11 @@ class CourtController extends Controller
     public function update(Court $court)
     {
         $data = request()->validate([
-            'name' => 'required|string',
-            'address' => 'required|string',
-            'region_id' => 'required|string',
-            'cass_region' => 'required|string',
-            'general_type_id' => 'required|string',
+            'name' => $this::REQUIRED_STRING,
+            'address' => $this::REQUIRED_STRING,
+            'region_id' => $this::REQUIRED_STRING,
+            'cass_region' => $this::REQUIRED_STRING,
+            'general_type_id' => $this::REQUIRED_STRING,
             'phone' => 'required',
             'email' => 'required|email',
             'site' => 'required|url',
