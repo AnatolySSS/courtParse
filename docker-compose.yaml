@@ -84,8 +84,8 @@ services:
   jenkins-main:
     container_name: laravel-jenkins
     build:
-      context: .
-      dockerfile: Dockerfile.jenkins
+      context: ./docker/jenkins
+      dockerfile: Dockerfile
     privileged: true
     restart: unless-stopped
     hostname: "jenkins-main.example.ru"
